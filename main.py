@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Response, jsonify
 import mysql.connector
 import json
+import random
 from db import DATABASE_CONFIG
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ def formatToJson(data):
             "id": row[0],
             "name": row[1],
             "gender": row[2],
+            "region": row[3],
         }
         list.append(name)
     return list
@@ -43,6 +45,7 @@ def get_names():
         return response
     return jsonify({"message": "error in fetching data"}), 404
 
+
 @app.route("/api/names/<int:id>")
 def get_name(id):
     connection = get_mysql_connection()
@@ -59,5 +62,24 @@ def get_name(id):
     if(result):
         return response
     return jsonify({"message": "error in fetching data"}), 404
+
+@app.route('/1')
+def get_random_data():
+    connection = get_mysql_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM names")
+    random_data = cursor.fetchall()
+    result = formatToJson(random_data)
+    result = random.choice(result)
+    response = Response(
+        response=json.dumps(result),
+        status=200,
+        mimetype='application/json'
+    )
+    cursor.close()
+    if(result):
+        return response
+    return jsonify({"message": "error in fetching data"}), 404
+
 
 app.run()
