@@ -1,0 +1,5 @@
+#ext
+*.py[cod]
+
+#file:
+db.py
