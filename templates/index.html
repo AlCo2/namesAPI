@@ -7,6 +7,21 @@
 </head>
 <body>
     <h1>Welcome To name API</h1>
-    <a href="/api/names">link</a>
+    <form action="/" method="POST">
+        <select name="gender" id="">
+            <option value="M">Male</option>
+            <option value="F">Femal</option>
+        </select>
+        <label for="">Arabic</label>
+        <input type="radio" name="region" value="1" id="">
+        <label for="">American</label>
+        <input type="radio" name="region" value="3" id="">
+        <label for="">European</label>
+        <input type="radio" name="region" value="2" id="">  
+        <button>Get A Random Name</button>
+    </form>
+    {% if name %}
+        <h1>{{name}}</h1>
+    {% endif %}
 </body>
 </html>

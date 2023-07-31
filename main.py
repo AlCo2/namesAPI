@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, jsonify
+from flask import Flask, render_template, Response, jsonify, request
 import mysql.connector
 import json
 import random
@@ -22,9 +22,27 @@ def formatToJson(data):
         list.append(name)
     return list
 
-@app.route('/')
+
+def get_randome_name(gender, region):
+    connection = get_mysql_connection()
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT * FROM names where gender='{gender}' and region={region}")
+    random_data = cursor.fetchall()
+    result = random.choices(random_data)
+    return result[0][1]
+
+@app.route('/', methods=['GET', 'POST'])
 def welcome():
-    return render_template('index.html')
+    name = None
+    if request.method == 'POST':
+        gender = request.form['gender']
+        region = request.form.getlist('region')
+        if(len(region)>0):
+            name = get_randome_name(gender, region[0])
+        else:
+            region = random.randrange(1,4)
+            name = get_randome_name(gender, region)
+    return render_template('index.html', name=name)
 
 
 
@@ -63,14 +81,14 @@ def get_name(id):
         return response
     return jsonify({"message": "error in fetching data"}), 404
 
-@app.route('/1')
+@app.route('/randomname')
 def get_random_data():
     connection = get_mysql_connection()
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM names")
     random_data = cursor.fetchall()
     result = formatToJson(random_data)
-    result = random.choice(result)
+    result = random.choices(result)
     response = Response(
         response=json.dumps(result),
         status=200,
