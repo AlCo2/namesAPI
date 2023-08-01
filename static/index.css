@@ -133,7 +133,6 @@ html{
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 .generatedName p{
     background-color: #023047;
@@ -145,29 +144,99 @@ html{
     border-radius: 5px;
 }
 .doc{
-    height: 100vh;
     background-color: #121212;
     color: white;
     font-family: 'Poppins';
-    padding-top: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 30px;
 }
 .insideDoc{
+    min-width: 600px;
     width: 600px;
     height: 100%;
-    transform: translateX(100px);
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .introDoc{
     font-size: 25px;
     font-weight:300;
-    padding-right: 200px;
 }
 .docIntroP{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 500px;
+    font-size: 12px;
+}
+
+.firstInfoTable th:first-child{
+    width: 400px;
+}
+.firstInfoTable th:nth-child(2){
+    width: 150px;
+}
+.firstInfoTable th{
+    text-align: left;
+    padding-left: 10px;
+    height: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.523);
+}
+
+.infoTable{
+    background-color: #001d3d;
+    border-radius: 3px;
+}
+.infoTable th{
     font-size: 10px;
+    font-weight: 500;
+    opacity: 60%;
+}
+.secondInfoTable td{
+    font-size: 10px;
+    padding-left: 10px;
+    height: 40px;
+}
+.secondInfoTable:hover{
+    background-color: #219ebc;
+}
+.tableTitle{
+    font-weight: 300;
+}
+.tableDiv{
+    border-top: 1px solid rgba(255, 255, 255, 0.432);
+    padding-top: 10px;
+    margin-top: 20px;
+}
+.tableLabel{
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+.divTitleLabel{
+    padding-left: 10px;
+}
+
+.tableDiv .divTitleLabel:nth-child(3){
+    margin-top: 10px;
+}
+
+.brackets{
+    font-size: 10px;
+    padding-left: 10px;
+}
+.brackets:hover{
+    background-color: rgba(240, 248, 255, 0.6);
+}
+.code{
+    font-size: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 20px;
+}
+.code:hover{
+    background-color: rgba(240, 248, 255, 0.6);
+}
+.responseDiv{
+    display: flex;
+    flex-direction: column;
 }

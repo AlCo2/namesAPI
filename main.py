@@ -81,7 +81,7 @@ def get_name(id):
         return response
     return jsonify({"message": "error in fetching data"}), 404
 
-@app.route('/randomname')
+@app.route('/api/randomname')
 def get_random_data():
     connection = get_mysql_connection()
     cursor = connection.cursor()
@@ -89,6 +89,28 @@ def get_random_data():
     random_data = cursor.fetchall()
     result = formatToJson(random_data)
     result = random.choices(result)
+    response = Response(
+        response=json.dumps(result),
+        status=200,
+        mimetype='application/json'
+    )
+    cursor.close()
+    if(result):
+        return response
+    return jsonify({"message": "error in fetching data"}), 404
+
+@app.route('/api/randomname/<int:id>')
+def get_random_multiple_data(id):
+    if(id>50):
+        id = 50
+    if(id<=0):
+        id = 1
+    connection = get_mysql_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM names")
+    random_data = cursor.fetchall()
+    result = formatToJson(random_data)
+    result = random.choices(result, k=id)
     response = Response(
         response=json.dumps(result),
         status=200,
