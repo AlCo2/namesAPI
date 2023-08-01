@@ -14,43 +14,59 @@
         <div class="NavTitle">Name API</div>
     </div>
     <div class="sidebar" id="sidebar">
+        <button class="navCloseBtn" id="closeNav"><i class="fa-solid fa-x"></i></button>
         <div class="sideLabeldiv">
-            <a href="" class="sideLabel">
+            <a href="#home" class="sideLabel">
                 <div><i class="fa-solid fa-house"></i></div>
-                <div>Home</div>
+                <div class="label">Home</div>
             </a>
         </div>
         <div class="sideLabeldiv">
-            <a href="" class="sideLabel">
+            <a href="#doc" class="sideLabel">
                 <div><i class="fa-solid fa-book"></i></div>
-                <div>doc</div>
+                <div class="label">doc</div>
             </a>
         </div>
         <div class="sideLabeldiv">
             <a href="https://github.com/AlCo2" class="sideLabel">
                 <div><i class="fa-brands fa-github"></i></div>
-                <div>Github</div>
+                <div class="label">Github</div>
             </a>
         </div>
     </div>
+    <div class="home" id="home">
+        <div class="introLabel">
+            Generate random<span class="name">Name</span> 
+        </div>
+        <div class="generateNameDiv">
+            <form class="generateNameForm" action="/" method="POST">
+                <select class="selectPlace" name="gender" id="">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+                <div>
+                    <label for="">Arabic</label>
+                    <input type="radio" name="region" value="1" id="">
+                    <label for="">American</label>
+                    <input type="radio" name="region" value="3" id="">
+                    <label for="">European</label>
+                    <input type="radio" name="region" value="2" id="">  
+                </div>
+                <button class="generateBtn">Generate</button>
+            </form>
+        </div>
+        <div class="generatedName"><p>{{name}}</p></div>
+    </div>
+    <div class="doc" id="doc">
+        <div class="insideDoc">
+            <div class="introDoc">API Docs</div>
+            <div class="docIntroP">
+                <p>The name API well-supported nature makes it exceptionally user-friendly. Below, you'll discover comprehensive details on how effortlessly you can integrate its functionalities into your application.</p>
+            </div>
+            <div style="margin-top: 50px;font-size: 40px;font-weight: bold;">Soon...</div>
+        </div>
+    </div>
 
-
-
-
-
-    <!-- <form action="/" method="POST">
-        <select name="gender" id="">
-            <option value="M">Male</option>
-            <option value="F">Femal</option>
-        </select>
-        <label for="">Arabic</label>
-        <input type="radio" name="region" value="1" id="">
-        <label for="">American</label>
-        <input type="radio" name="region" value="3" id="">
-        <label for="">European</label>
-        <input type="radio" name="region" value="2" id="">  
-        <button>Get A Random Name</button>
-    </form> -->
     <script src="/static/index.js"></script>
 </body>
 </html>

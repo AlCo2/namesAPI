@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+html{
+    scroll-behavior: smooth;
+}
 
 .navbar{
     display: flex;
@@ -11,16 +14,21 @@
     padding-top: 5px;
     background-color: #219ebc;
     height: 50px;
-    -webkit-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
-    box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 3px 3px 5px -2px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 3px 3px 5px -2px rgba(255, 255, 255, 0.75);
+    box-shadow: 3px 3px 5px -2px rgba(255, 255, 255, 0.75);
 }
-.navOpenBtn{    
+.navOpenBtn, .navCloseBtn{
     background: transparent;
     border: none;
     color: white;
     font-size: 20px;
     cursor: pointer;
+    outline: none;
+}
+.navCloseBtn{
+    width: fit-content;
+    margin-left: 90%;
 }
 .NavTitle{
     color: white;
@@ -33,6 +41,7 @@
     background-color: #023047;
     color: white;
     position: fixed;
+    top: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -46,7 +55,7 @@
 .sideLabel{
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 20px;
     text-decoration: none;
     color: white;
     font-family: 'Poppins';
@@ -58,4 +67,107 @@
 .sideLabel:hover{
     background-color: #264653;
 }
+.sideLabel .label{
+    font-size: 13px;
+    font-weight: 500;
+}
+.sideLabel i{
+    font-size: 16px;
+    width: 18px;
+}
 
+.home{
+    background-color: #121212;
+    height: 75vh;
+    color: white;
+    padding-top: 80px;
+}
+.introLabel{
+    font-size: 35px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color: #fb8500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.introLabel .name{
+    color: white;
+    padding-left: 5px;
+}
+
+.generateNameDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.selectPlace{
+    outline: none;
+    border-radius: 3px;
+    height: 20px;
+}
+
+.generateNameForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Poppins';
+}
+.generateBtn{
+    background-color: #ffb703;
+    width: 100px;
+    height: 30px;
+    border: none;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.generatedName{
+    margin-top: 50px;
+    color: #fb8500;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.generatedName p{
+    background-color: #023047;
+    width: 350px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+.doc{
+    height: 100vh;
+    background-color: #121212;
+    color: white;
+    font-family: 'Poppins';
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.insideDoc{
+    width: 600px;
+    height: 100%;
+    transform: translateX(100px);
+}
+.introDoc{
+    font-size: 25px;
+    font-weight:300;
+    padding-right: 200px;
+}
+.docIntroP{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    font-size: 10px;
+}
