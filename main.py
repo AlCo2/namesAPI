@@ -33,7 +33,7 @@ def get_randome_name(gender, region):
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
-    name = None
+    name = 'name'
     if request.method == 'POST':
         gender = request.form['gender']
         region = request.form.getlist('region')
