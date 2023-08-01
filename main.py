@@ -2,8 +2,13 @@ from flask import Flask, render_template, Response, jsonify, request
 import mysql.connector
 import json
 import random
-from db import DATABASE_CONFIG
 
+DATABASE_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': 'Iamalegend',
+    'database': 'nameapi'
+}
 
 def create_app():
     app = Flask(__name__)
